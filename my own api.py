@@ -49,5 +49,4 @@ def list_recipy_all():
     return jsonify({'recipy':recipies})
 
 if __name__ == '__main__':
-    app.debug = True
     app.run(port=8882)
