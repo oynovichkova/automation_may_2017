@@ -37,10 +37,10 @@ def hello():
         return name + " you want too much"
 
 
-@app.route('/pers/api/v1/list/<int:pers_id>', methods=['GET'])
+@app.route('/pers/api/v1/list/<int:res_id>', methods=['GET'])
 def list_recipy_by_id(res_id):
-    persona = filter(lambda t: t['id']== pers_id, recipies)
-    if persona == 0:
+    recipy = filter(lambda t: t['id']== res_id, recipies)
+    if recipy == 0:
         abort(404)
     return jsonify({'recipy':recipies[0]})
 
