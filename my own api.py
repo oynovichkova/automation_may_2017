@@ -39,10 +39,22 @@ def hello():
 
 @app.route('/pers/api/v1/list/<int:res_id>', methods=['GET'])
 def list_recipy_by_id(res_id):
-    recipy = filter(lambda t: t['id']== res_id, recipies)
-    if recipy == 0:
-        abort(404)
-    return jsonify({'recipy':recipies[0]})
+    for recipy in recipies:
+        if recipy['id'] == res_id:
+            x = res_id - 1
+            return jsonify({'recipy': recipies[x]})
+        else:
+            abort(404)
+
+def list_recipy_by_id(res_id):
+    for recipy in recipies:
+        if recipy['id'] == res_id:
+            return recipy
+        else:
+            abort(404)
+
+
+
 
 @app.route('/pers/api/v1/list/', methods=['GET'])
 def list_recipy_all():
