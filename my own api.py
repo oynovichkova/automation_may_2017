@@ -7,17 +7,18 @@ app = Flask(__name__)
 
 recipies = [
     {
-        "name":"fried eggs",
-     "ingridients": "eggs, butter, fire",
-     "recipy": "just crush eggs",
+    "name":"fried eggs",
+    "ingridients": "eggs, butter, fire",
+    "recipy": "just crush eggs",
     "id":1
      },
 
     {
-        "name":"cake",
-     "ingridients": "a lot of cake staff",
-     "recipy": "just crush it together and put in the store",
-     "id":2
+
+    "name":"cake",
+    "ingridients": "a lot of cake staff",
+    "recipy": "just crush it together and put in the store",
+    "id":2
      }
 ]
 
@@ -49,6 +50,21 @@ def hello():
 #    else:
 #        return name + " you want too much"
 
+@app.route('/api/v1/add_recipy', methods=['POST'])
+def add_recipy():
+    if not request.json or not 'recipy' in request.json:
+        abort(400)
+    recipy = {
+
+        'name': request.json['name'],
+        'ingridients': request.json['ingridients'],
+        'recipy': request.json['recipy'],
+        'id': request.json['id']
+    }
+    recipies.append(recipy)
+    return jsonify({'recipy': recipy}), 201
+
+
 #@app.route('/pers/api/v1/list/<int:res_id>', methods=['GET'])
 #def list_recipy_by_id(res_id):
 #    for recipy in recipies:
@@ -68,6 +84,7 @@ def list_recipy_by_id(res_id):
         return jsonify(recipy)
     else:
         abort(404)
+
 
 
 
