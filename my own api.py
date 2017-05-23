@@ -54,12 +54,12 @@ def hello():
 def add_recipy():
     if not request.json or not 'recipy' in request.json:
         abort(400)
-    recipy = {
+    recipy= {
 
-        'name': request.json['name'],
-        'ingridients': request.json['ingridients'],
-        'recipy': request.json['recipy'],
-        'id': request.json['id']
+        "name" : request.json['name2'],
+        "ingridients": request.json['ingridients2'],
+        "recipy": request.json['recipy2'],
+        "id": request.json['id2']
     }
     recipies.append(recipy)
     return jsonify({'recipy': recipy}), 201
