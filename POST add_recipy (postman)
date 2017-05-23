@@ -1,0 +1,15 @@
+curl -X POST \
+  http://127.0.0.1:8882/api/v1/add_recipy \
+  -H 'accept: application/json' \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+  -H 'origin: http://127.0.0.1:8882' \
+  -H 'postman-token: b11ad6db-b053-974f-2abf-7c50a89474cf' \
+  -d '{
+"recipy": {   
+    "name2":"fried eggs2",
+    "ingridients2": "eggs, butter, fire2",
+    "recipy2": "just crush egg2s",
+    "id2":3
+    }
+}'
